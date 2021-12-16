@@ -11,7 +11,7 @@ steps:
   image: joomlaprojects/docker-images:php7.4
   commands:
   - php -v
-  - composer update
+  - composer update --prefer-stable
   - composer require phpmd/phpmd phpstan/phpstan
   volumes:
   - name: composer-cache
@@ -70,7 +70,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable --prefer-lowest
-  - composer update phpunit/phpunit-mock-objects
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -99,74 +98,12 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
 
 - name: PHPUnit
   image: joomlaprojects/docker-images:php5.3
-  commands:
-  - vendor/bin/phpunit
-
-volumes:
-- name: composer-cache
-  host:
-    path: /tmp/composer-cache
-
----
-kind: pipeline
-name: PHP 5.4
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: composer
-  image: joomlaprojects/docker-images:php5.4
-  commands:
-  - php -v
-  - composer update --prefer-stable
-  - ""
-  - ""
-  volumes:
-  - name: composer-cache
-    path: /tmp/composer-cache
-
-- name: PHPUnit
-  image: joomlaprojects/docker-images:php5.4
-  commands:
-  - vendor/bin/phpunit
-
-volumes:
-- name: composer-cache
-  host:
-    path: /tmp/composer-cache
-
----
-kind: pipeline
-name: PHP 5.5
-
-platform:
-  os: linux
-  arch: amd64
-
-steps:
-- name: composer
-  image: joomlaprojects/docker-images:php5.5
-  commands:
-  - php -v
-  - composer update --prefer-stable
-  - ""
-  - ""
-  volumes:
-  - name: composer-cache
-    path: /tmp/composer-cache
-
-- name: PHPUnit
-  image: joomlaprojects/docker-images:php5.5
   commands:
   - vendor/bin/phpunit
 
@@ -189,8 +126,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -219,8 +154,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -249,8 +182,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -279,8 +210,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -309,8 +238,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -339,8 +266,6 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
-  - ""
-  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -368,9 +293,7 @@ steps:
   image: joomlaprojects/docker-images:php8.0
   commands:
   - php -v
-  - composer update --ignore-platform-reqs --prefer-stable
-  - wget https://ci.joomla.org/artifacts/phpunit8_php8_match.patch
-  - patch -N -p0 < phpunit8_php8_match.patch
+  - composer update --ignore-platform-reqs
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -388,6 +311,6 @@ volumes:
 
 ---
 kind: signature
-hmac: d21b6b782f740c9a4fdab2c148f95508a27917023b8c7c8741719e92f362cca8
+hmac: 515cd8f0c293ae13052cb02642c10137c7b93f520812799b0296f8048af6b1ca
 
 ...
