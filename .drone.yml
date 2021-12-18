@@ -106,6 +106,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -134,6 +136,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -162,6 +166,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -190,6 +196,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -218,6 +226,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -246,6 +256,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -274,6 +286,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -302,6 +316,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - composer require --dev --with-all-dependencies phpunit/phpunit:^8.0
+  - ""
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -331,6 +347,8 @@ steps:
   commands:
   - php -v
   - composer update --prefer-stable
+  - ""
+  - composer require --dev --with-all-dependencies phpunit/phpunit:^8.0
   volumes:
   - name: composer-cache
     path: /tmp/composer-cache
@@ -348,6 +366,6 @@ volumes:
 
 ---
 kind: signature
-hmac: c228b1553a7ba8e77e2303de5ce06e37c049d73b332c66a77bf9f5864d28615a
+hmac: 020c6fe1ab6e2d0c394255f545e0489db0e3976cd9fabfa45e92f0ae9db23205
 
 ...
